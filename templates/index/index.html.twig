@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Applications{% endblock %}
+
+{% block body %}
+    <!-- ======= Hero Section ======= -->
+    <turbo-frame id="the_frame_id">
+        <section id="hero">
+            <div class="hero-container">
+
+                <a href="index.html" class="hero-logo" data-aos="zoom-in"><img
+                            src="{{ asset("assets/img/logo_black.png") }}"
+                            alt=""></a>
+                <h1 data-aos="zoom-in">Welcome To Apps list</h1>
+                <h2 data-aos="fade-up">You can check here system and microservices created by me</h2>
+
+                <a href="{{ path('app_programming_language_index') }}" data-turbo-frame="_top"
+                   class="btn-get-started">
+                    Get Started
+                </a>
+
+
+                {#            <a data-aos="fade-up" data-aos-delay="200" href="#about" class="btn-get-started scrollto">Get Started</a> #}
+            </div>
+        </section>
+    </turbo-frame><!-- End Hero -->
+
+
+
+{% endblock %}
