@@ -1,22 +1,20 @@
+import React from 'react';
 import {createBrowserRouter} from "react-router-dom";
-import Index from "../components/Index";
+import Home from "../components/Home";
+import Users from "../components/Users";
+import Posts from "../components/Posts";
 
 export const ApplicationRouter = createBrowserRouter([
     {
         path: "/",
-        element: <Index/>,
+        element: <Home/>,
     },
     {
-        path: "about",
-        element: <div>About</div>,
+        path: "/users",
+        element: <Users/>,
+    },
+    {
+        path: "/posts",
+        element: <Posts/>,
     },
 ]);
-
-
-// (): React.ReactNode => (
-//     <Routes>
-//         <Route path="/" element={<Index/>}/>
-//         <Route path="/users" element={<Users/>}/>
-//         <Route path="/posts" element={<Posts/>}/>
-//     </Routes>
-// )

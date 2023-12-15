@@ -22,10 +22,17 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
+    // .addEntries({
+    //     app: './assets/app.js',
+    //     ux: './assets/ux.js',
+    // })
     .addEntry('app', './assets/app.js')
+    .addEntry('ux', './assets/ux.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
+
+    .enableVueLoader()
 
     .enableReactPreset()
 
@@ -74,14 +81,15 @@ Encore
 
     // uncomment if you use TypeScript
     .enableTypeScriptLoader()
-
-
-// uncomment to get integrity="..." attributes on your script & link tags
-// requires WebpackEncoreBundle 1.4 or higher
-//.enableIntegrityHashes(Encore.isProduction())
-
-// uncomment if you're having problems with a jQuery plugin
-//.autoProvidejQuery()
+    .copyFiles({
+        from: './assets/img',
+        to: 'img/[path][name].[hash:8].[ext]',
+    })
+    .autoProvidejQuery({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();

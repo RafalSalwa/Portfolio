@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Route, Routes} from 'react-router-dom';
-import Users from "./Users";
-import Posts from "./Posts";
-import Index from "./Index";
+import {Link} from 'react-router-dom';
 
 class Home extends Component {
 
@@ -23,11 +20,6 @@ class Home extends Component {
                         </ul>
                     </div>
                 </nav>
-                <Routes>
-                    <Route path="/" element={<Index/>}/>
-                    <Route path="/users" element={<Users/>}/>
-                    <Route path="/posts" element={<Posts/>}/>
-                </Routes>
             </div>
         )
     }

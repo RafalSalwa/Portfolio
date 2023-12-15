@@ -1,0 +1,47 @@
+{% extends 'ux.html.twig' %}
+{% block title %} Symfony UX {% endblock %}
+
+{% block body %}
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Inner Page</h2>
+                    <ol>
+                        <li><a href="{{ path("ux_index") }}">Home</a></li>
+                        <li>Inner Page</li>
+                    </ol>
+                </div>
+
+            </div>
+        </section><!-- End Breadcrumbs -->
+
+        <!-- ======= Langs list Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h2>About Us</h2>
+                    <p>Magnam dolores commodi suscipit eius consequatur</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="image">
+                            <img src="{{ asset("build/img/about.jpg") }}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="image">
+                            <img src="{{ asset("build/img/about.jpg") }}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Us Section -->
+
+    </main><!-- End #main -->{% endblock %}

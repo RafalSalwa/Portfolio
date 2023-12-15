@@ -4,7 +4,29 @@
       "js": [
         "http://localhost:8080/build/runtime.js",
         "http://localhost:8080/build/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-bdc443.js",
+        "http://localhost:8080/build/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap_dist_js_bootstrap_bundle_js-node_-4387dd.js",
+        "http://localhost:8080/build/vendors-node_modules_react-dom_client_js-node_modules_react-router-dom_dist_index_js-node_mod-53a2df.js",
+        "http://localhost:8080/build/assets_scripts_main_js-assets_vendor_aos_aos_js-assets_vendor_glightbox_js_glightbox_min_js-a-4e5bf6.js",
         "http://localhost:8080/build/app.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap_dist_js_bootstrap_bundle_js-node_-4387dd.css",
+        "http://localhost:8080/build/assets_scripts_main_js-assets_vendor_aos_aos_js-assets_vendor_glightbox_js_glightbox_min_js-a-4e5bf6.css",
+        "http://localhost:8080/build/app.css"
+      ]
+    },
+    "ux": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-bdc443.js",
+        "http://localhost:8080/build/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap_dist_js_bootstrap_bundle_js-node_-4387dd.js",
+        "http://localhost:8080/build/assets_scripts_main_js-assets_vendor_aos_aos_js-assets_vendor_glightbox_js_glightbox_min_js-a-4e5bf6.js",
+        "http://localhost:8080/build/ux.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap_dist_js_bootstrap_bundle_js-node_-4387dd.css",
+        "http://localhost:8080/build/assets_scripts_main_js-assets_vendor_aos_aos_js-assets_vendor_glightbox_js_glightbox_min_js-a-4e5bf6.css",
+        "http://localhost:8080/build/ux.css"
       ]
     }
   }
