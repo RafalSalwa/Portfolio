@@ -16,4 +16,11 @@ class SymfonyUXController extends AbstractController
 
         );
     }
+    #[Route("/golang", name:"golang")]
+    public function getGolang():Response
+    {
+        return $this->render("ux/golang.html.twig"
+
+        );
+    }
 }

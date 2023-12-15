@@ -3,3 +3,8 @@
     margin: 0;
     max-height: 80px;
 }
+.about img.img-fluid {
+    width: auto;
+    height: 20rem;
+    object-fit: contain;
+}
