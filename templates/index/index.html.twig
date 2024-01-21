@@ -1,74 +1,25 @@
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Applications{% endblock %}
+{% block title %}RS Portfolio{% endblock %}
 
 {% block body %}
-    <section id="pricing" class="pricing section-bg">
-        <div class="container">
-
-            <div class="section-title" data-aos="fade-up">
-                <h2>Apps list</h2>
-                <p>list of application with all needed links for apps, tech stacks, documentations and repositories</p>
-                <br />
-                <p>This page could be browser with different frameworks</p>
-            </div>
-
+<turbo-frame id="main_turbo" data-turbo-action="advance" data-turbo-frame="_self">
+    <section id="hero">
+        <div class="hero-container">
+                <img src="{{ asset("build/img/logo/logo.avif") }}" alt="logo" class="hero-logo" data-aos="zoom-in">
+        
+            <h2 data-aos="fade-up">
+                <p>
+                    list of all needed links, tech stacks, documentations and repositories<br/>
+                    This page could be browsed with different frameworks
+                </p>
+            </h2>
             <div class="row">
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box" data-aos="zoom-in" data-aos-delay="100">
-                        <h3>Symfony UX</h3>
-                        <h4><img src="{{ asset('build/img/logo/sf-ux.svg') }}" alt="sfux-logo"></h4>
-                        <ul>
-                            <li>Symfony 6, twig, </li>
-                            <li>ux-turbo</li>
-                            <li>ux-autocomplete</li>
-                            <li>ux-react</li>
-                            <li>webpack encore</li>
-                        </ul>
-                        <div class="btn-wrap">
-                            <a href="{{ path("ux_index") }}" class="btn-buy">Check</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
-                    <div class="box" data-aos="zoom-in">
-                        <h3>ReactJS</h3>
-                        <h4><img src="{{ asset('build/img/logo/reactjs.svg') }}" alt="reactjs-logo"></h4>
-                        <ul>
-                            <li>ReactJS 18</li>
-                            <li>React dom router 6</li>
-                            <li>babel 9</li>
-                            <li>Typescript 5 & ts-loader</li>
-                            <li>Bootstrap</li>
-                        </ul>
-                        <div class="btn-wrap">
-                            <a href="{{ path("react_index") }}" class="btn-buy">Check</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-                    <div class="box" data-aos="zoom-in" data-aos-delay="100">
-                        <h3>Vue.js</h3>
-                        <h4><img src="{{ asset('build/img/logo/vuejs.svg') }}" alt="vuejs-logo"></h4>
-                        <ul>
-                            <li>Coming soon</li>
-                            <li>Vue3</li>
-                            <li>Vue Router</li>
-                            <li>Vite</li>
-                            <li>Pinia</li>
-                        </ul>
-                        <div class="btn-wrap">
-                            <a href="{{ path("vue_index") }}" class="btn-buy">Check</a>
-                        </div>
-                    </div>
-                </div>
-
+                <a data-aos="fade-up" data-aos-delay="200" href="{{ path("ux_index") }}" class="btn-get-started col-md-auto">Symfony UX</a>
+                <a data-aos="fade-up" data-aos-delay="200" href="{{ path("react_index") }}" class="btn-get-started col-md-auto">ReactJS 18</a>
             </div>
-
         </div>
     </section>
-    {#    <div id="app-root"></div> #}
+</turbo-frame>
 {% endblock %}

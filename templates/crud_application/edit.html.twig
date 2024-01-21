@@ -1,0 +1,20 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Application{% endblock %}
+{% block header %}Edit Application{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="card">
+            <div class=card-header">
+                <div class="col-xl-11 m-3">
+                    <h1>Edit Application</h1>
+                </div>
+            </div>
+            <div class="card-body">
+                {{ include('crud_application/_form.html.twig') }}
+            </div>
+            <a href="{{ path('admin_crud_application_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Applications{% endblock %}
+{% block header %}{% endblock %}
+{% block body %}
+    <div class="row">
+    <div class="col-lg-4 mb-4 order-0">
+        {% include 'admin/partials/_card.html.twig' with {
+            'title':'Applications',
+            'path_name':'admin_crud_application_index'
+        } %}
+    </div>
+    <div class="col-lg-4 mb-4 order-0">
+        {% include 'admin/partials/_card.html.twig' with {
+            'title':'Languages',
+            'path_name':'admin_crud_lang_index'
+        } %}
+    </div>
+    <div class="col-lg-4 mb-4 order-0">
+        {% include 'admin/partials/_card.html.twig' with {
+            'title':'Stacks',
+            'path_name':'admin_crud_stack_item_index'
+        } %}
+    </div>
+    </div>
+{% endblock %}

@@ -1,55 +1,42 @@
 <!DOCTYPE html>
-<html>
-<head lang="{{ app.request.locale }}">
-    <meta charset="UTF-8">
+<html lang="{{ app.request.locale }}">
+<head>
     <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta charset="UTF-8">
+    {# <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' localhost:* ws://localhost:*; script-src 'self'"> #}
+    <meta name="application-name" content="Portfolio Page">
+    <meta name="robots" content="index,follow">
+    <meta name="google" content="notranslate">
+
+
     <meta name="csrf-token" content="{{ csrf_token('turbo') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="List of applications and stacks">
+    <meta name="theme-color" content="#0d0d0d" />
+    <meta property="og:title" content="RS Portfolio Apps" /> 
+    <meta property="og:description" content="List of currently developed applications and their stacks" /> 
+    <meta property="og:image" content="{{ asset("build/img/logo/logo.png") }}" /> 
+    <meta property="og:url" content="https://apps.salwa.com.pl" /> 
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RS Portfolio Apps">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="image_src" href="{{ asset("build/img/logo/logo.png") }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
-
-    <!-- Favicons -->
-    <link href="{{ asset("assets/img/favicon.png") }}" rel="icon">
-    <link href="{{ asset("assets/img/favicon.png") }}assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-          rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="{{ asset("assets/vendor/aos/aos.css") }}" rel="stylesheet">
-    <link href="{{ asset("assets/vendor/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
-    <link href="{{ asset("assets/vendor/bootstrap-icons/bootstrap-icons.css") }}"
-          rel="stylesheet">
-    <link href="{{ asset("assets/vendor/boxicons/css/boxicons.min.css") }}" rel="stylesheet">
-    <link href="{{ asset("assets/vendor/glightbox/css/glightbox.min.css") }}" rel="stylesheet">
-    <link href="{{ asset("assets/vendor/swiper/swiper-bundle.min.css") }}" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="{{ asset("assets/css/style.css") }}" rel="stylesheet">
+   
 </head>
-<body>
+<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="500" >
+    {% block body %}{% endblock %}
 
-{% block body %}{% endblock %}
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-{# <!-- Vendor JS Files --> #}
-{# <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script> #}
-{# <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> #}
-{# <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script> #}
-{# <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script> #}
-{# <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script> #}
-{# <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script> #}
-
-{# <!-- Template Main JS File --> #}
-{# <script src="{{ asset('assets/js/main.js') }}"></script> #}
-{% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-{% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
 </body>
 </html>

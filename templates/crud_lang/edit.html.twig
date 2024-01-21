@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Apps{% endblock %}
+
+{% block body %}
+    <h1>Edit Apps</h1>
+
+    {{ include('crud_lang/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_crud_lang_index') }}">back to list</a>
+
+    {{ include('crud_lang/_delete_form.html.twig') }}
+{% endblock %}

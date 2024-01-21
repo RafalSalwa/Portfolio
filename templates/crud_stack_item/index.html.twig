@@ -1,0 +1,67 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}StackItem index{% endblock %}
+{% block header %}StackItems{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="card pb-5">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-xl-11">
+                    </div>
+                    <div class="col-xl-1 text-end">
+                        <a href="{{ path('admin_crud_stack_item_new') }}">
+                            <button type="button" class="btn btn-primary">new</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive text-nowrap">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Url</th>
+                        <th>Description</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for stack_item in stack_items %}
+                        <tr>
+                            <td>{{ stack_item.id }}</td>
+                            <td>{{ stack_item.name }}</td>
+                            <td>{{ stack_item.url }}</td>
+                            <td>{{ stack_item.description }}</td>
+                            <td class="text-end">
+
+                                <a href="{{ path('admin_crud_stack_item_show', {'id': stack_item.id}) }}">
+                                    <button type="button" class="btn btn-secondary">show</button>
+                                </a>
+
+                                <a href="{{ path('admin_crud_stack_item_edit', {'id': stack_item.id}) }}">
+                                    <button type="button" class="btn btn-info">edit</button>
+                                </a>
+                                {#                                <a href="{{ path('admin_crud_stack_item_delete', {'id': stack_item.id}) }}"> #}
+                                <button type="button" class="btn btn-danger text-nowrap" data-bs-toggle="popover"
+                                        data-bs-offset="0,14" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-content="<p>This is a very beautiful popover, show some love.</p> <div class='d-flex justify-content-between'><button type='button' class='btn btn-sm btn-outline-secondary'>Skip</button><button type='button' class='btn btn-sm btn-primary'>Read More</button></div>"
+                                        title="" data-bs-original-title="Remove">
+                                    remove
+                                </button>
+                                {#                                </a> #}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

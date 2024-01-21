@@ -1,0 +1,46 @@
+{% extends 'ux.html.twig' %}
+
+{% block body %}
+
+    <main id="main">
+        <turbo-frame id="main_turbo" data-turbo-action="advance" data-turbo-frame="_self">
+            <!-- ======= Breadcrumbs ======= -->
+            <section class="breadcrumbs">
+                <div class="container">
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2>Symfony UX</h2>
+                        <ol>
+                            <li><a href="{{ path("ux_index") }}">Home</a></li>
+                            <li>UX</li>
+                        </ol>
+                    </div>
+
+                </div>
+            </section><!-- End Breadcrumbs -->
+
+            <!-- ======= Langs list Section ======= -->
+            <section id="about" class="about">
+                <div class="container">
+
+                    <div class="section-title">
+                        <h2>Tech stacks</h2>
+                    </div>
+                    <div class="row">
+                        {% for i, stack in stacks %}
+                            <div class="col-lg-4" data-aos="fade-{{ cycle(['right','up','left'], i) }}">
+                                <a href="{{ path('ux_stack',{'stack': stack.name}) }}">
+                                    <div class="image text-center">
+                                        <img src="{{ asset("build/img/" ~ stack.img) }}" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </section><!-- End About Us Section -->
+        </turbo-frame>
+    </main><!-- End #main -->
+
+{% endblock %}
