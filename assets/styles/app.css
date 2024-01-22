@@ -1,10 +1,12 @@
-#hero .hero-logo{
-    margin:0;
+#hero .hero-logo {
+    margin: 0;
 }
+
 #hero .hero-logo img {
-    height:200px;
+    height: 200px;
     object-fit: contain;
 }
+
 .row-section {
     float: left;
     width: 100%;
@@ -97,43 +99,61 @@
 
 body {
     background-color: lightgray;
-    margin:0;
-    padding:0;
-    overflow:hidden;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#hero .hero-container a {
+    text-decoration: none;
+}
+
+#hero h2 {
+    margin: 1rem 0;
 }
 
 @media (max-width: 575.98px) {
     #hero {
-        padding-top:7rem;
+        padding-top: 7rem;
     }
-    #hero .hero-container{
-        padding:0 20px;
+
+    #hero .hero-container {
+        padding: 0 20px;
     }
-    #hero .hero-logo img {
+
+    #hero .hero-container a {
+        text-decoration: none;
+    }
+
+    #hero .hero-logo {
         height: 130px;
     }
+
     #hero h2 {
-        margin:0;
+        margin: 30px 0;
         margin-top: 1rem;
     }
 
-    #hero .btn-get-started{
+    #hero .btn-get-started {
         margin: 10px 0;
         text-decoration: none;
     }
-    .section-title{
+
+    .section-title {
         font-size: 12px;
         padding-bottom: 20px;
     }
 
-    .pricing .box{
-        min-height:20%;
-        padding:10px;
+    .pricing .box {
+        min-height: 20%;
+        padding: 10px;
     }
-    .pricing .box .btn-buy{
-        width:100%;
+
+    .pricing .box .btn-buy {
+        width: 100%;
     }
-    .pricing .box ul li{
+
+    .pricing .box ul li {
         display: inline;
     }
 
@@ -143,7 +163,7 @@ body {
         object-fit: contain;
     }
 
-    .pricing .box ul li::after{
+    .pricing .box ul li::after {
         content: ", ";
     }
 }

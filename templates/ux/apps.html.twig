@@ -1,35 +1,36 @@
 {% extends 'ux.html.twig' %}
 
 {% block body %}
-<turbo-frame id="main_turbo" data-turbo-action="advance" data-turbo-frame="_self">
-    <section id="portfolio">
-			<div class="container-xxl mt-15">
-				<header class="section-header my-5">
-					<h3 class="section-title my-5">Tech stack</h3>
-				</header>
+    <turbo-frame id="ux_app" data-turbo-action="advance" data-turbo-frame="_self">
+        <section id="portfolio">
+            <div class="container-xxl mt-15">
+                <header class="section-header my-5">
+                    <h3 class="section-title my-5">Applications</h3>
+                </header>
 
-				<div class="row h-100 d-flex align-items-center justify-content-center">
+                <div class="row h-100 d-flex align-items-center justify-content-center">
 
-					{% for application in apps %}
-						<div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-							<div class="portfolio-wrap">
-								<figure>
-									<img src="{{ asset("build/img/" ~ application.img) }}" class="img-fluid" alt="">
-									<a href="#" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Apps">
-										<i class="ion ion-eye"></i>
-									</a>
-								</figure>
+                    {% for application in apps %}
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{{ asset("build/img/" ~ application.img) }}" class="img-fluid" alt="">
+                                    <a href="#" data-lightbox="portfolio" data-title="App 1" class="link-preview"
+                                       title="Apps">
+                                        <i class="ion ion-eye"></i>
+                                    </a>
+                                </figure>
 
-								<div class="portfolio-info">
-									<h4>
-										<a href="{{ path('ux_stack',{'stack': application.name}) }}">{{application.name }}</a>
-									</h4>
-								</div>
-							</div>
-						</div>
-					{% endfor %}
-				</div>
-			</div>
-		</section>
- </turbo-frame>
+                                <div class="portfolio-info">
+                                    <h4>
+                                        <a href="{{ path("ux_tools",{"stack": app.request.get('stack') , "app": application.name }) }}">{{ application.name }}</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </turbo-frame>
 {% endblock %}

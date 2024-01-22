@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head lang="{{ app.request.locale }}">
+<html lang="{{ app.request.locale }}">
+<head>
     <meta charset="UTF-8">
     <title>{% block title %}RS Apps{% endblock %}</title>
     <meta name="csrf-token" content="{{ csrf_token('turbo') }}">
@@ -18,24 +18,26 @@
 <body>
 <header id="header" class="header-scrolled">
     <div class="container-fluid">
-
-      <div id="logo" class="pull-left">
-        <h1><a href="{{path("app_index") }}" class="scrollto">Symfony UX</a></h1>
-      </div>
-
-      <nav id="nav-menu-container">
-        <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
-          <li class="menu-active"><a href="{{path("ux_index") }}">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
+        <div id="logo" class="pull-left">
+            <h1><a href="{{ path("app_index") }}" class="scrollto">Symfony UX</a></h1>
+        </div>
+        <nav id="nav-menu-container">
+            <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+                <li class="menu-active"><a href="{{ path("ux_index") }}">Home</a></li>
+                <li><a href="{{ path('ux_about') }}">About</a></li>
+                <li><a href="{{ path('ux_contact') }}">Contact</a></li>
+            </ul>
+        </nav><!-- #nav-menu-container -->
     </div>
-  </header>
+</header>
 
 {% block body %}{% endblock %}
+
+{# <script defer> #}
+{#    const eventSource = new EventSource("{{ mercure('topics')|escape('js') }}"); #}
+{#    eventSource.onmessage = event => { #}
+{#        console.log(event.data); #}
+{#    } #}
+{# </script> #}
 </body>
 </html>

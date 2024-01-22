@@ -1,56 +1,35 @@
 {% extends 'ux.html.twig' %}
 
 {% block body %}
+    <turbo-frame id="ux_app" data-turbo-action="advance" data-turbo-frame="_self">
+        <section id="about">
+            <div class="container">
 
-    <main id="main">
-        <turbo-frame id="main_turbo" data-turbo-action="advance" data-turbo-frame="_self">
-            <!-- ======= Breadcrumbs ======= -->
-            <section class="breadcrumbs tech-item-bg">
-                <div class="container">
+                <header class="section-header">
+                    <h3>{{ app.request.get('app') }} Tools</h3>
+                    <p>List of tools and technologies used by this project</p>
+                </header>
 
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h2></h2>
-                        <ol>
-                            <li>
-                                <a href="{{ path("ux_index") }}">Home</a>
-                            </li>
-                            <li>
-                                <a href="{{ path("ux_stack", {'stack': app.request.get('stack')}) }}"> {{ app.request.get('stack') }}</a>
-                            </li>
-                            <li>{{ app.request.get('app') }}</li>
-                        </ol>
-                    </div>
-
-                </div>
-            </section><!-- End Breadcrumbs -->
-            <!-- ======= Portfolio Section ======= -->
-            <section id="pricing" class="pricing pricing-offset section-bg">
-                <div class="container">
-
-                    <div class="section-title" data-aos="fade-up">
-                        <h2>{{ app.request.get('app') }} tools</h2>
-                    </div>
-
-                    <div class="row">
-                        {% for item in stack %}
-                            <div class="col-lg-3 col-md-3 mb-5">
-                                <div class="tech-item box" data-aos="zoom-in" data-aos-delay="100">
-                                    <h2 class="my-3">{{ item.name }}</h2>
+                <div class="row about-cols">
+                    {% for item in stack %}
+                        <div class="col-lg-3 col-md-4 wow fadeInUp animated"
+                             style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="about-col">
+                                <div class="img">
                                     <img src="{{ asset('build/img/techs/' ~ item.img) }}" alt="{{ item.name }}-logo"
-                                         class="mb-5">
-                                    <div class="d-block my-2 tool-description">
-                                        {{ item.description }}
-                                    </div>
-                                    <div class="btn-wrap pt-5">
-                                        <a href="{{ item.url }}" target="_blank" class="btn-buy">Check</a>
-                                    </div>
+                                         class="img-fluid">
                                 </div>
+                                <h2 class="title"><a href="{{ item.url }}" target="_blank">{{ item.name }}</a></h2>
+                                <p>
+                                    {{ item.description }}
+                                </p>
                             </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </section><!-- End Portfolio Section -->
-        </turbo-frame>
-    </main>
+                        </div>
+                    {% endfor %}
 
+                </div>
+
+            </div>
+        </section>
+    </turbo-frame>
 {% endblock %}
