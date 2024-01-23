@@ -1539,5 +1539,16 @@ body.mobile-nav-active #mobile-nav-toggle {
     #portfolio {
         overflow: auto;
         padding: 60px 0;
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 992px) {
+    body {
+        overflow: auto;
+    }
+
+    #portfolio {
+        overflow: auto;
     }
 }
