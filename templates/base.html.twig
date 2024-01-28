@@ -12,31 +12,35 @@
     <meta name="csrf-token" content="{{ csrf_token('turbo') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="List of applications and stacks">
-    <meta name="theme-color" content="#0d0d0d" />
-    <meta property="og:title" content="RS Portfolio Apps" /> 
-    <meta property="og:description" content="List of currently developed applications and their stacks" /> 
-    <meta property="og:image" content="{{ asset("build/img/logo/logo.png") }}" /> 
-    <meta property="og:url" content="https://apps.salwa.com.pl" /> 
+    <meta name="theme-color" content="#0d0d0d"/>
+    <meta property="og:title" content="RS Portfolio Apps"/>
+    <meta property="og:description" content="List of currently developed applications and their stacks"/>
+    <meta property="og:image" content="{{ asset("build/img/logo/logo.png") }}"/>
+    <meta property="og:url" content="https://apps.salwa.com.pl"/>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="RS Portfolio Apps">
     <meta property="og:locale" content="en_US">
 
-    <link rel="image_src" href="{{ asset("build/img/logo/logo.png") }}" />
+    <link rel="image_src" href="{{ asset("build/img/logo/logo.png") }}"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <script src="{{ asset("assets/vendor/wow/wow.js") }}"></script>
 
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
-   
-</head>
-<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="500" >
-    {% block body %}{% endblock %}
 
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
+
+</head>
+<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="500">
+{% block body %}{% endblock %}
+
+{% include 'stream/footer.html.twig' %}
+{% include 'cookies/disclaimer.html.twig' %}
 </body>
 </html>

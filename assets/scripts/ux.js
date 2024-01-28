@@ -12,5 +12,4 @@
         once: true,
         mirror: false
     });
-
 })()

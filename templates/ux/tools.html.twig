@@ -3,32 +3,29 @@
 {% block body %}
     <turbo-frame id="ux_app" data-turbo-action="advance" data-turbo-frame="_self">
         <section id="about">
-            <div class="container">
-
-                <header class="section-header">
-                    <h3>{{ app.request.get('app') }} Tools</h3>
-                    <p>List of tools and technologies used by this project</p>
+            <div class="container-xxl my-5 mt-15">
+                <header class="section-header my-5">
+                    <h3 class="section-title my-5">{{ app.request.get('app') }} Tools</h3>
                 </header>
-
-                <div class="row about-cols">
+                <div class="row about-cols d-flex align-items-center justify-content-center">
                     {% for item in stack %}
                         <div class="col-lg-3 col-md-4 wow fadeInUp animated"
                              style="visibility: visible; animation-name: fadeInUp;">
                             <div class="about-col">
                                 <div class="img">
-                                    <img src="{{ asset('build/img/techs/' ~ item.img) }}" alt="{{ item.name }}-logo"
+                                    <img src="{{ asset('img/techs/' ~ item.img,'cdn') }}" alt="{{ item.name }}-logo"
                                          class="img-fluid">
                                 </div>
-                                <h2 class="title"><a href="{{ item.url }}" target="_blank">{{ item.name }}</a></h2>
+                                <h2 class="title border-top mt-4 pt-3 mx-3"><a href="{{ item.url }}"
+                                                                               target="_blank">{{ item.name }}</a>
+                                </h2>
                                 <p>
                                     {{ item.description }}
                                 </p>
                             </div>
                         </div>
                     {% endfor %}
-
                 </div>
-
             </div>
         </section>
     </turbo-frame>

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Application;
+use App\Entity\Stack;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -47,5 +48,15 @@ class AppsRepository extends ServiceEntityRepository
     public function findByName(string $app): ?Application
     {
         return $this->findOneBy(["name" => $app]);
+    }
+
+    public function getForStack(Stack $stack)
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'ASC')
+            ->where("a.lang= :lang_id")
+            ->setParameter("lang_id", $stack->getId())
+            ->getQuery()
+            ->getResult();
     }
 }

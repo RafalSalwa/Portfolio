@@ -61,6 +61,7 @@
     "jquery-bridget": "^3.0.1",
     "popper.js": "^1.16.1",
     "react-query": "^3.39.3",
+    "stimulus": "^3.2.2",
     "sweetalert2": "^11.10.2",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",

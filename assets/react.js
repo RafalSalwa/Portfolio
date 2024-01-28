@@ -1,5 +1,5 @@
 import './styles/ux.css';
-import './styles/style.css';
+import './styles/react.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import React, {StrictMode} from 'react';
 import {QueryClient, QueryClientProvider} from "react-query";

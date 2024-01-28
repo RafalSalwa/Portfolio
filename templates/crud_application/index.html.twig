@@ -36,7 +36,8 @@
                             <td>{{ application.name }}</td>
                             <td>{{ application.lang }}</td>
                             <td>{{ application.slug }}</td>
-                            <td>{{ application.img }}</td>
+                            <td><img class="img-preview"
+                                     src="https://cdn.salwa.com.pl/{{ application.img }}"/> {{ application.img }}</td>
                             <td class="text-end">
                                 <a href="{{ path('admin_crud_application_show', {'id': application.id}) }}">
                                     <button type="button" class="btn btn-primary">show</button>

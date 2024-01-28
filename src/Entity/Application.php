@@ -6,6 +6,7 @@ use App\Repository\AppsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Serializer\Annotation\Ignore as SerializerIgnore;
 
 #[ORM\Entity(repositoryClass: AppsRepository::class)]
@@ -24,6 +25,8 @@ class Application
 
     #[ORM\Column(length: 255)]
     private ?string $img = null;
+
+    private ?File $imgFile = null;
 
     #[SerializerIgnore]
     #[ORM\OneToMany(mappedBy: 'application', targetEntity: Tool::class)]
@@ -97,6 +100,17 @@ class Application
 
         return $this;
     }
+
+    public function getImgFile(): ?File
+    {
+        return $this->imgFile;
+    }
+
+    public function setImgFile(File $imgFile): void
+    {
+        $this->imgFile = $imgFile;
+    }
+
 
     /**
      * @return Collection<int, Tool>

@@ -10,10 +10,10 @@
 
                 <div class="row d-flex align-items-center justify-content-center">
                     {% for i, stack in stacks %}
-                        <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item filter-app ">
+                        <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item" data-aos="zoom-in">
                             <div class="portfolio-wrap">
                                 <figure>
-                                    <img src="{{ asset("build/img/" ~ stack.img) }}" class="img-fluid" alt="">
+                                    <img src="{{ asset(stack.img, 'cdn') }}" class="img-fluid" alt="">
                                 </figure>
                                 <div class="portfolio-info">
                                     <h4>
@@ -23,8 +23,11 @@
                             </div>
                         </div>
                     {% endfor %}
+                    {{ render(path('ux_recent_features')) }}
                 </div>
+
             </div>
         </section>
+
     </turbo-frame>
 {% endblock %}

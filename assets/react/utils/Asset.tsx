@@ -1,6 +1,6 @@
-export function getAsset(path: string) {
+export function getAsset(path: string, deliveryServer: string = 'cdn') {
     if (process.env.NODE_ENV === 'production') {
-        return 'https://apps.salwa.com.pl/build/img/' + path;
+        return 'https://cdn.salwa.com.pl/' + path;
     }
-    return "http://localhost:8080/build/img/" + path;
+    return "https://cdn.salwa.com.pl/" + path;
 }

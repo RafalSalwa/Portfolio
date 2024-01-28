@@ -20,12 +20,12 @@ const TextCard: React.FC<TextCardProps> = ({id = 1, name = "empty", img = "empty
     return (
         <div className="col-lg-4 col-md-6 portfolio-item filter-app">
             <div className="portfolio-wrap">
-                <img src={getAsset('portfolio/portfolio-1.jpg')} className="img-fluid"
+                <img src={getAsset(img)} className="img-fluid"
                      alt=""/>
                 <div className="portfolio-info">
                     <h4>AuthApi</h4>
                     <div className="portfolio-links">
-                        <a href="/react/golang/AuthApi" title="More Details">
+                        <a href={name} title="More Details">
                             <i className="bx bx-link">tools</i>
                         </a>
                     </div>

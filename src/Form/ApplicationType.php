@@ -4,15 +4,20 @@ namespace App\Form;
 
 use App\Entity\Application;
 use App\Entity\Stack;
+use App\Form\DataTransformer\AppImageTransformer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\File;
 
 class ApplicationType extends AbstractType
 {
+    public function __construct(
+        private AppImageTransformer $transformer,
+    ) {
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -23,21 +28,13 @@ class ApplicationType extends AbstractType
                 'required' => false,
             ])
             ->add('slug')
-            ->add('img', FileType::class, [
-                'label' => 'image',
+            ->add('imgFile', FileType::class, [
+                'label' => 'Image',
                 'mapped' => false,
-                'required' => true,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '1024k',
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'application/x-pdf',
-                        ],
-                        'mimeTypesMessage' => 'Please upload a valid PDF document',
-                    ]),
-                ],
+                'required' => false,
+                'data_class' => null,
             ]);
+//        $builder->get('imgFile')->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Repository\FeaturesRepository;
 use App\Service\AppsService;
 use App\Service\StackService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Clock\ClockInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mercure\HubInterface;
 use Symfony\Component\Mercure\Update;
@@ -22,14 +24,31 @@ class SymfonyUXController extends AbstractController
     }
 
     #[Route('/about/topic', name: 'about_topic')]
-    public function aboutTopic(HubInterface $hub): Response
+    public function aboutTopic(HubInterface $hub, ClockInterface $clock): Response
     {
-        $msg = $hub->publish(
-            new Update('topics', $this->renderView('ux/topic.stream.html.twig', []))
-        );
+        $now = $clock->now();
+        while (true) {
+            $hub->publish(
+                new Update('topics', $this->renderView('ux/topic.stream.html.twig', []))
+            );
+            $clock->sleep(5);
+            if ($clock->now()->getTimestamp() - $now->getTimestamp() >= 60) {
+                break;
+            }
+        }
 
-        return new Response($msg);
+        return new Response();
     }
+
+    #[Route('/features/recent', name: 'recent_features')]
+    public function recentFeatures(FeaturesRepository $featuresRepository, HubInterface $hub): Response
+    {
+        $features = $featuresRepository->findAll();
+        $feature = $features[0];
+        
+        return $this->render('ux/topic.stream.html.twig', ['feature' => $feature]);
+    }
+
 
     #[Route('/contact', name: 'contact')]
     public function contact(): Response

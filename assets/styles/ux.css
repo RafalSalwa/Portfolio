@@ -652,7 +652,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #about {
     background: url("../img/about-bg.jpg") center top no-repeat fixed;
     background-size: cover;
-    padding: 120px 0 40px 0;
+    padding: 100px 0 40px 0;
     position: relative;
 }
 
@@ -664,7 +664,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     top: 0;
     bottom: 0;
     background: rgba(255, 255, 255, 0.92);
-    z-index: 9;
 }
 
 #about .container {
@@ -867,7 +866,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Facts Section
 --------------------------------*/
 #facts {
-    background: url("../img/facts-bg.jpg") center top no-repeat fixed;
     background-size: cover;
     padding: 60px 0 0 0;
     position: relative;
@@ -913,11 +911,23 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Portfolio Section
 --------------------------------*/
 #portfolio {
+    background: url("../img/about-bg.jpg") center top no-repeat fixed;
+    background-size: cover;
     padding: 100px 0;
     height: 100vh;
     position: relative;
     width: 100%;
     overflow: hidden;
+}
+
+#portfolio::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
 }
 
 #portfolio #portfolio-flters {
@@ -1550,5 +1560,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
     #portfolio {
         overflow: auto;
+        background-repeat: repeat;
+        background-size: auto;
+        height: auto;
     }
 }

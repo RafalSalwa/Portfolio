@@ -2,15 +2,8 @@
     {{ form_row(form.name) }}
     {{ form_row(form.lang) }}
     {{ form_row(form.slug) }}
+    {{ form_row(form.imgFile) }}
 
-<div class="mb-3">
-    <label for="application_img" class="form-label required">{{ form_label(form.img) }}</label>
-    {{ form_widget(form.img) }}
-    <div class="form-error">
-        {{ form_errors(form.img) }}
-    </div>
-    <div class="imagePreview" id="imagePreview"></div>
-</div>
 <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 
