@@ -1,0 +1,29 @@
+<div
+        {{ attributes }}
+>
+    {% if sendoutStatus %}
+    <div id="sendmessage" class="show">Your message has been sent. Thank you!</div>
+    {% endif %}
+    {{ form_start(form, {'attr':{
+        'data-model':'debounce(300)|max',
+        'role':'form',
+        'class': 'contactForm',
+    }}) }}
+    {{ form_row(form.visitor) }}
+    {% if form.kind is defined and form.kind is not empty %}
+            {{ form_row(form.kind) }}
+    {% endif %}
+    {% if form.subject is defined and form.subject is not empty %}
+        {{ form_row(form.subject) }}
+    {% endif %}
+    {% if form.message is defined and form.message is not empty %}
+        {{ form_row(form.message) }}
+    {% endif %}
+    {% if form.submit is defined and form.submit is not empty %}
+        <div class="text-center">
+            {{ form_row(form.submit) }}
+            <button type="submit">Send Message</button>
+        </div>
+    {% endif %}
+    {{ form_end(form) }}
+</div>

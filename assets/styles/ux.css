@@ -650,10 +650,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* About Us Section
 --------------------------------*/
 #about {
-    background: url("../img/about-bg.jpg") center top no-repeat fixed;
+    background: url(http://localhost:9000/build/images/about-bg.a9060d94.jpg) center top no-repeat fixed;
     background-size: cover;
-    padding: 100px 0 40px 0;
+    padding: 105px 0 0 0;
     position: relative;
+    height: 100%;
 }
 
 #about::before {
@@ -676,14 +677,14 @@ body.mobile-nav-active #mobile-nav-toggle {
     border-radius: 0 0 4px 4px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
-    height: 450px;
+    height: 370px;
 }
 
 #about .about-col .img {
     position: relative;
     text-align: center;
     padding: 30px;
-    height: 300px;
+    height: 230px;
 }
 
 #about .about-col .img img {
@@ -1563,5 +1564,13 @@ body.mobile-nav-active #mobile-nav-toggle {
         background-repeat: repeat;
         background-size: auto;
         height: auto;
+    }
+
+    #about {
+        background: url(http://localhost:9000/build/images/about-bg.a9060d94.jpg) center top no-repeat fixed;
+        background-size: cover;
+        position: relative;
+        overflow: visible;
+        height: 100%;
     }
 }

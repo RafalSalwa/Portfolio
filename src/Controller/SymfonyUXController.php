@@ -4,56 +4,39 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Repository\FeaturesRepository;
+use App\Entity\Contact;
+use App\Form\DependentContactType;
+use App\Repository\ContactRepository;
 use App\Service\AppsService;
 use App\Service\StackService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Clock\ClockInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mercure\HubInterface;
-use Symfony\Component\Mercure\Update;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/ux', name: 'ux_')]
 class SymfonyUXController extends AbstractController
 {
-    #[Route('/about', name: 'about')]
+    #[Route('/search', name: 'stack_search')]
     public function about(): Response
     {
-        return $this->render('ux/about.html.twig', []);
+        return $this->render('ux/stack_search.html.twig', []);
     }
-
-    #[Route('/about/topic', name: 'about_topic')]
-    public function aboutTopic(HubInterface $hub, ClockInterface $clock): Response
-    {
-        $now = $clock->now();
-        while (true) {
-            $hub->publish(
-                new Update('topics', $this->renderView('ux/topic.stream.html.twig', []))
-            );
-            $clock->sleep(5);
-            if ($clock->now()->getTimestamp() - $now->getTimestamp() >= 60) {
-                break;
-            }
-        }
-
-        return new Response();
-    }
-
-    #[Route('/features/recent', name: 'recent_features')]
-    public function recentFeatures(FeaturesRepository $featuresRepository, HubInterface $hub): Response
-    {
-        $features = $featuresRepository->findAll();
-        $feature = $features[0];
-        
-        return $this->render('ux/topic.stream.html.twig', ['feature' => $feature]);
-    }
-
 
     #[Route('/contact', name: 'contact')]
-    public function contact(): Response
+    public function contact(Request $request, ContactRepository $repository): Response
     {
-        return $this->render('ux/contact.html.twig', []);
+        $contact = new Contact();
+        $form = $this->createForm(DependentContactType::class, $contact);
+        $emptyForm = clone $form;
+        $form->handleRequest($request);
+        $sendoutStatus = false;
+        if ($form->isSubmitted() && $form->isValid()) {
+            $repository->save($contact);
+            $form = $emptyForm;
+            $sendoutStatus = true;
+        }
+        return $this->render('ux/contact.html.twig', ['form' => $form, 'sendoutStatus'=>$sendoutStatus]);
     }
 
     #[Route('/', name: 'index')]
@@ -98,6 +81,4 @@ class SymfonyUXController extends AbstractController
             ]
         );
     }
-
-
 }

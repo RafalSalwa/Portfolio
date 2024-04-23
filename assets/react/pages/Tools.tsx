@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {apiToolsListEndpoint} from "../config/endpoints";
-import {Sizes} from "../components/TextCard";
 import ToolCard from "../components/ToolCard";
 
 interface ToolItem {
@@ -33,31 +32,27 @@ const Tools: React.FC = () => {
                 .then(result => {
                     setData(result.tools);
                     setIsLoading(false);
-                    console.log(result.tools)
                 })
                 .catch(error => {
-                    console.error('Error fetching data:', error);
                     setIsLoading(false);
                 });
         }
     }, [data]);
 
     return (
-        <section id="pricing" className="pricing pricing-offset section-bg">
-            <div className="container">
+        <section id="about">
+            <div className="container-xxl ">
+                <header className="section-header">
+                    <h3 className="section-title mb-5">{params.app} tools</h3>
+                </header>
 
-                <div className="section-title aos-init aos-animate" data-aos="fade-up">
-                    <h2>AuthApi stack</h2>
-                </div>
-
-                <div className="row">
+                <div className="row about-cols">
                     {data?.map((item) => <ToolCard key={item.id}
                                                    id={item.id}
                                                    name={item.name}
                                                    img={item.img}
                                                    url={item.url}
-                                                   description={item.description}
-                                                   size={Sizes.Small}/>)}
+                                                   description={item.description}/>)}
                 </div>
             </div>
         </section>

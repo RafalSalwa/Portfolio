@@ -58,14 +58,10 @@ Encore
     .configureImageRule({
         type: 'asset',
     })
-    .autoProvidejQuery({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-    })
+    .autoProvidejQuery()
     .addPlugin(new dotenv({
         ignoreStub: true,
     }))
 ;
-console.log(process.env.NODE_ENV);
+
 module.exports = Encore.getWebpackConfig();

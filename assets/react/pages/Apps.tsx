@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {apiAppsListEndpoint} from "../config/endpoints";
-import TextCard, {Sizes} from "../components/TextCard";
+import ImageCard from "../components/ImageCard";
 
 interface AppItem {
     id: number,
@@ -40,19 +40,18 @@ const Apps: React.FC = () => {
     }, [data]);
 
     return (
-        <section id="portfolio" className="portfolio">
-            <div className="container">
-
-                <div className="section-title aos-init aos-animate" data-aos="fade-up">
-                    <h2>{params.lang} Apps</h2>
-                </div>
-                <div className="row ">
-                    {data?.map((item) => <TextCard key={item.id}
-                                                   id={item.id}
-                                                   name={item.name}
-                                                   img={item.img}
-                                                   url={item.slug}
-                                                   size={Sizes.Medium}/>)}
+        <section id="portfolio">
+            <div className="container-xxl my-5 mt-15">
+                <header className="section-header my-5">
+                    <h3 className="section-title my-5">{params.lang} Apps</h3>
+                </header>
+                <div className="row h-100 d-flex align-items-center justify-content-center ">
+                    {data?.map((item) => <ImageCard key={item.id}
+                                                    id={item.id}
+                                                    name={item.name}
+                                                    url={item.name}
+                                                    img={item.img}
+                    />)}
                 </div>
             </div>
         </section>

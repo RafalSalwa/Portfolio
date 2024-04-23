@@ -4,15 +4,15 @@
       "js": [
         "http://localhost:9000/build/runtime.js",
         "http://localhost:9000/build/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-09f2b2.js",
-        "http://localhost:9000/build/vendors-node_modules_mini-css-extract-plugin_dist_hmr_hotModuleReplacement_js-node_modules_re-cf06c1.js",
-        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-7f18e2.js",
-        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_js_bootstrap_esm_js-node_modules_core-js_modules_es_date_-ca2cf3.js",
-        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-85f237.js",
+        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-03ba72.js",
+        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_js_bootstrap_esm_js-node_modules_core-js_modules_es_date_-beda79.js",
+        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-5ce5d6.js",
         "http://localhost:9000/build/app.js"
       ],
       "css": [
-        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-7f18e2.css",
-        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-85f237.css",
+        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-03ba72.css",
+        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-5ce5d6.css",
+        "http://localhost:9000/build/assets_vendor_ionicons_css_ionicons_css.css",
         "http://localhost:9000/build/app.css"
       ]
     },
@@ -20,18 +20,17 @@
       "js": [
         "http://localhost:9000/build/runtime.js",
         "http://localhost:9000/build/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-09f2b2.js",
-        "http://localhost:9000/build/vendors-node_modules_mini-css-extract-plugin_dist_hmr_hotModuleReplacement_js-node_modules_re-cf06c1.js",
-        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-7f18e2.js",
-        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_css_bootstrap_css-node_modules_core-js_modules_es_functio-0df976.js",
-        "http://localhost:9000/build/vendors-node_modules_core-js_modules_es_array_filter_js-node_modules_core-js_modules_es_array-a69fbb.js",
-        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-85f237.js",
+        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-03ba72.js",
+        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_css_bootstrap_css-node_modules_core-js_modules_es_array_f-0379c2.js",
+        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-5ce5d6.js",
         "http://localhost:9000/build/ux.js"
       ],
       "css": [
-        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-7f18e2.css",
-        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_css_bootstrap_css-node_modules_core-js_modules_es_functio-0df976.css",
-        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-85f237.css",
-        "http://localhost:9000/build/assets_styles_ux_css.css",
+        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-03ba72.css",
+        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_css_bootstrap_css.css",
+        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-5ce5d6.css",
+        "http://localhost:9000/build/assets_vendor_ionicons_css_ionicons_css.css",
+        "http://localhost:9000/build/assets_styles_ux_css-assets_vendor_animate_animate_css.css",
         "http://localhost:9000/build/ux.css"
       ]
     },
@@ -39,14 +38,16 @@
       "js": [
         "http://localhost:9000/build/runtime.js",
         "http://localhost:9000/build/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-09f2b2.js",
-        "http://localhost:9000/build/vendors-node_modules_mini-css-extract-plugin_dist_hmr_hotModuleReplacement_js-node_modules_re-cf06c1.js",
-        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_css_bootstrap_css-node_modules_core-js_modules_es_functio-0df976.js",
-        "http://localhost:9000/build/vendors-node_modules_react-dom_client_js-node_modules_react-query_es_index_js-node_modules_re-fa3fa0.js",
+        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-03ba72.js",
+        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_css_bootstrap_css-node_modules_react-dom_client_js-node_m-393d81.js",
+        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-5ce5d6.js",
         "http://localhost:9000/build/react.js"
       ],
       "css": [
-        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_css_bootstrap_css-node_modules_core-js_modules_es_functio-0df976.css",
-        "http://localhost:9000/build/assets_styles_ux_css.css",
+        "http://localhost:9000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-03ba72.css",
+        "http://localhost:9000/build/vendors-node_modules_bootstrap_dist_css_bootstrap_css.css",
+        "http://localhost:9000/build/assets_controllers_sync_recursive_node_modules_symfony_stimulus-bridge_lazy-controller-loader-5ce5d6.css",
+        "http://localhost:9000/build/assets_styles_ux_css-assets_vendor_animate_animate_css.css",
         "http://localhost:9000/build/react.css"
       ]
     }
