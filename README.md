@@ -14,4 +14,3 @@ For Symfony UX:
 - [ux-turbo](https://symfony.com/bundles/ux-turbo/current/index.html)
 
 ### Shared REST API and layouts for both languages, with Admin panel.
-Some screens:
