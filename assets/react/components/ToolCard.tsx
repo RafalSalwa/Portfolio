@@ -1,5 +1,6 @@
 import React from "react";
 import {getAsset} from "../utils/Asset";
+import {Link} from "react-router-dom";
 
 export enum Sizes {
     Small = "col-lg-3 col-md-3",
@@ -13,7 +14,6 @@ interface ToolCardProps {
     url: string;
     img: string;
     description: string;
-    size: Sizes
 }
 
 const ToolCard: React.FC<ToolCardProps> = ({
@@ -22,21 +22,20 @@ const ToolCard: React.FC<ToolCardProps> = ({
                                                img = "empty.png",
                                                url = "localhost",
                                                description = "lorem ipsum sir dolor amet",
-                                               size = Sizes.Medium
                                            }) => {
     return (
-        <div className={`${size} mb-5`} key={id}>
-            <div className="tech-item box aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
-                <h2 className="my-3">{name}</h2>
-                <img src={getAsset('techs/' + img)} alt="swagger-logo"
-                     className="mb-5"/>
-                <div className="d-block my-2 tool-description">
+        <div className="col-lg-3 col-md-4 wow fadeInUp animated" key={id}>
+            <div className="about-col">
+                <div className="img d-flex align-items-center text-center">
+                    <img src={getAsset('img/techs/' + img)} alt={name + '-logo'}
+                         className="img-fluid mx-auto d-block"/>
+                </div>
+                <h2 className="title border-top mt-4 pt-3 mx-3">
+                    <Link to={url} target="_blank">{name}</Link>
+                </h2>
+                <p>
                     {description}
-                </div>
-                <div className="btn-wrap pt-5">
-                    <a href={url} target="_blank"
-                       className="btn-buy">Check</a>
-                </div>
+                </p>
             </div>
         </div>
     );
@@ -48,6 +47,5 @@ ToolCard.defaultProps = {
     url: "localhost",
     img: "empty.png",
     description: "lorem ipsum",
-    size: Sizes.Medium
 }
 export default ToolCard;

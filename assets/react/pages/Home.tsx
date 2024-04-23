@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import ImageCard from "../components/ImageCard";
 import apiHomepageEndpoint from "../config/endpoints";
 
+let AOS = require('../../vendor/aos/aos');
+
 interface LangItem {
     id: number,
     name: string,
@@ -29,21 +31,27 @@ const Home: React.FC = () => {
                     setIsLoading(false);
                 });
         }
+        AOS.init();
     }, [data]);
 
     return (
-        <section id="about" className="about">
-            <div className="container">
-                <div className="section-title">
-                    <h2>Tech stack</h2>
+        <section id="portfolio">
+            <div className="container-xxl my-5 mt-15">
+                <header className="section-header my-5">
+                    <h3 className="section-title my-5">Tech stack</h3>
+                </header>
+
+                <div className="row d-flex align-items-center justify-content-center">
+                    {isLoading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        data!.map((item) => <ImageCard key={item.id}
+                                                       id={item.id}
+                                                       name={item.name}
+                                                       url={item.name}
+                                                       img={item.img}/>)
+                    )}
                 </div>
-                {isLoading ? (
-                    <div>Loading...</div>
-                ) : (
-                    <div className="row">
-                        {data!.map((item) => <ImageCard key={item.id} {...item} />)}
-                    </div>
-                )}
             </div>
         </section>
     );

@@ -1,16 +1,25 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Home from "../pages/Home";
-import Apps from "../pages/Apps";
-import Tools from "../pages/Tools";
+import Layout from "../components/Layout/Layout";
+import ErrorBoundary from "../components/ErrorBoundary";
+
+const Home = React.lazy(() => import('../pages/Home'));
+const Apps = React.lazy(() => import('../pages/Apps'));
+const Tools = React.lazy(() => import('../pages/Tools'));
+const Contact = React.lazy(() => import('../pages/Contact'));
+const About = React.lazy(() => import('../pages/About'));
 
 export function ApplicationRouter() {
     return (
-        <Router>
+        <Router basename="/react">
             <Routes>
-                <Route path="/react" element={<Home/>} handle={{crumb: () => "Home"}}/>
-                <Route path="/react/:lang" element={<Apps/>} handle={{crumb: () => "Apps"}}/>
-                <Route path="/react/:lang/:app" element={<Tools/>} handle={{crumb: () => "Stack"}}/>
+                <Route element={<Layout/>} errorElement={<ErrorBoundary/>}>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/contact" element={<Contact/>}/>
+                    <Route path="/about" element={<About/>}/>
+                    <Route path="/:lang" element={<Apps/>}/>
+                    <Route path="/:lang/:app" element={<Tools/>}/>
+                </Route>
             </Routes>
         </Router>
     );

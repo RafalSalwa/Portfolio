@@ -296,8 +296,8 @@ body {
     .stream-logo {
         height: 50px;
         width: auto;
+        padding-left: 10px;
         object-fit: contain;
     }
-
 }
 

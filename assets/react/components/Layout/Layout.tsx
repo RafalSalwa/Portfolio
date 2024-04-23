@@ -1,32 +1,16 @@
-import React, {ReactNode} from "react";
+import React, {Suspense} from "react";
 import Header from "./Header";
-import {urlHomepage} from "../../config/config";
+import {Outlet} from "react-router-dom";
 
-interface LayoutProps {
-    children: ReactNode;
-}
-
-const Layout: React.FC<LayoutProps> = ({children}) => {
+const Layout: React.FC = () => {
 
     return (
-        <div>
+        <>
             <Header/>
-            <main id="main" className="scrolled-offset">
-                <section className="breadcrumbs">
-                    <div className="container">
-
-                        <div className="d-flex justify-content-between align-items-center">
-                            <h2>React</h2>
-                            <ol>
-                                <li><a href={urlHomepage}>Home</a></li>
-                                <li>React</li>
-                            </ol>
-                        </div>
-                    </div>
-                </section>
-                {children}
-            </main>
-        </div>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Outlet/>
+            </Suspense>
+        </>
     );
 };
 
