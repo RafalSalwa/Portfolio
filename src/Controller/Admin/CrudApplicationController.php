@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Application;
 use App\Form\ApplicationType;
 use App\Repository\AppsRepository;
+use App\Uploader\FTPUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,15 +24,23 @@ class CrudApplicationController extends AbstractController
     }
 
     #[Route('/new', name: 'admin_crud_application_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, FTPUploader $ftpUploader): Response
     {
         $application = new Application();
         $form = $this->createForm(ApplicationType::class, $application);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($application);
-            $entityManager->flush();
+            $uploadedFile = $form->get('imgFile')->getData();
+            if ($uploadedFile) {
+                $newFilename = $ftpUploader->uploadAppImg($uploadedFile);
+                if ($newFilename) {
+                    $application->setImg($newFilename);
+                    $entityManager->persist($application);
+                    $entityManager->flush();
+                    $this->addFlash('success', 'Saved new Application');
+                }
+            }
 
             return $this->redirectToRoute('admin_crud_application_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -51,15 +60,33 @@ class CrudApplicationController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'admin_crud_application_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Application $application, EntityManagerInterface $entityManager): Response
-    {
+    public function edit(
+        Request $request,
+        Application $application,
+        EntityManagerInterface $entityManager,
+        FTPUploader $ftpUploader
+    ): Response {
         $form = $this->createForm(ApplicationType::class, $application);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $uploadedFile = $form->get('imgFile')->getData();
+            if ($uploadedFile) {
+                $newFilename = $ftpUploader->uploadAppImg($uploadedFile);
+                if ($newFilename) {
+                    $application->setImg($newFilename);
+
+                    $this->addFlash('success', 'Saved new Application');
+                }
+            }
+            $entityManager->persist($application);
             $entityManager->flush();
 
             return $this->redirectToRoute('admin_crud_application_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        if ($form->getErrors()->count()) {
+            dd($form->getErrors());
         }
 
         return $this->render('crud_application/edit.html.twig', [

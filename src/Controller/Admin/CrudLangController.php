@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Stack;
 use App\Form\Lang1Type;
+use App\Repository\AppsRepository;
 use App\Repository\StackRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,10 +44,13 @@ class CrudLangController extends AbstractController
     }
 
     #[Route('/{id}', name: 'admin_crud_lang_show', methods: ['GET'])]
-    public function show(Stack $lang): Response
+    public function show(Stack $stack, AppsRepository $repository): Response
     {
+        $apps = $repository->getForStack($stack);
+
         return $this->render('crud_lang/show.html.twig', [
-            'lang' => $lang,
+            'lang' => $stack,
+            'apps' => $apps,
         ]);
     }
 

@@ -9,7 +9,7 @@ const Header: React.FC = () => {
 
                 <div className="logo">
                     <a href="/">
-                        <img src={getAsset('logo_white.png')} alt=""
+                        <img src={getAsset('img/logo_white.png')} alt=""
                              className="img-fluid"></img>
                     </a>
                 </div>

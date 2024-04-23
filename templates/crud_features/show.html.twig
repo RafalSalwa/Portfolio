@@ -1,0 +1,34 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Features{% endblock %}
+
+{% block body %}
+    <h1>Features</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ feature.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ feature.name }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ feature.description }}</td>
+        </tr>
+        <tr>
+            <th>Img</th>
+            <td>{{ feature.img }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crud_features_index') }}">back to list</a>
+
+    <a href="{{ path('app_crud_features_edit', {'id': feature.id}) }}">edit</a>
+
+    {{ include('crud_features/_delete_form.html.twig') }}
+{% endblock %}

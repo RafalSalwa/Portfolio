@@ -962,7 +962,6 @@ section {
 --------------------------------------------------------------*/
 .testimonials {
     padding: 60px 0;
-    background: url("../img/testimonials-bg.jpg") no-repeat;
     background-position: center center;
     background-size: cover;
     position: relative;
@@ -1197,7 +1196,6 @@ section {
 }
 
 .pricing .box h3 {
-    font-weight: 400;
     padding: 15px;
     margin-top: 15px;
     font-size: 18px;
@@ -1261,7 +1259,6 @@ section {
     border: 2px solid #7cc576;
     color: #7cc576;
     font-size: 14px;
-    font-weight: 400;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
     transition: 0.3s;
@@ -1555,7 +1552,6 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    background: url("../img/footer-bg.jpg") center center no-repeat;
     color: #fff;
     font-size: 14px;
     position: relative;

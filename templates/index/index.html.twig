@@ -1,25 +1,25 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}RS Portfolio{% endblock %}
 
 {% block body %}
-<turbo-frame id="main_turbo" data-turbo-action="advance" data-turbo-frame="_self">
     <section id="hero">
         <div class="hero-container">
-                <img src="{{ asset("build/img/logo/logo.avif") }}" alt="logo" class="hero-logo" data-aos="zoom-in">
-        
-            <h2 data-aos="fade-up">
+            <img src="{{ asset("build/img/logo/logo.avif") }}" alt="logo" class="hero-logo" data-aos-once="true"
+                 data-aos="zoom-in">
+
+            <h2 data-aos="fade-up" data-aos-once="true">
                 <p>
                     list of all needed links, tech stacks, documentations and repositories<br/>
                     This page could be browsed with different frameworks
                 </p>
             </h2>
             <div class="row">
-                <a data-aos="fade-up" data-aos-delay="200" href="{{ path("ux_index") }}" class="btn-get-started col-md-auto">Symfony UX</a>
-                <a data-aos="fade-up" data-aos-delay="200" href="{{ path("react_index") }}" class="btn-get-started col-md-auto">ReactJS 18</a>
+                <a data-aos="fade-up" data-aos-delay="200" data-aos-once="true" href="{{ path("ux_index") }}"
+                   class="btn-get-started col-md-auto">Symfony UX</a>
+                <a data-aos="fade-up" data-aos-delay="200" data-aos-once="true" href="{{ path("react_index") }}"
+                   class="btn-get-started col-md-auto">ReactJS 18</a>
             </div>
         </div>
     </section>
-</turbo-frame>
 {% endblock %}

@@ -1,0 +1,17 @@
+<turbo-stream action="update" target="topics">
+    <template>
+        <div data-wow-delay="0.5s" data-wow-duration="0.15s" class="row bg-hero wow lightSpeedIn"
+             style="visibility: hidden;">
+            <div class="col-1 col-lg-1">
+                <img src="{{ asset(feature.img, 'cdn') }}" alt="feature-logo" class="img-fluid stream-logo"/>
+            </div>
+            <div class="col-8  col-lg-9 align-middle stream-description">
+                {{ feature.name }}<br>
+                <a href="{{ feature.url }}" target="_blank">{{ feature.description }}</a>
+            </div>
+            <script>
+                new WOW().init();
+            </script>
+        </div>
+    </template>
+</turbo-stream>
